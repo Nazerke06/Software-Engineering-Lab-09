@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="
+          http://www.liquibase.org/xml/ns/dbchangelog
+          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.7.xsd">
+
+    <!-- 1) CREATE TABLE countries -->
+    <changeSet id="1-create-countries" author="nazerke">
+        <createTable tableName="countries">
+            <column name="id" type="BIGSERIAL">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="code" type="VARCHAR(10)"/>
+        </createTable>
+    </changeSet>
+
+    <!-- 2) CREATE TABLE items -->
+    <changeSet id="2-create-items" author="nazerke">
+        <createTable tableName="items">
+            <column name="id" type="BIGSERIAL">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="price" type="INT"/>
+            <column name="quantity" type="INT"/>
+            <column name="manufacturer_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+
+    <!-- 3) ADD FOREIGN KEY -->
+    <changeSet id="3-add-fk" author="nazerke">
+        <addForeignKeyConstraint
+                constraintName="fk_items_countries"
+                baseTableName="items"
+                baseColumnNames="manufacturer_id"
+                referencedTableName="countries"
+                referencedColumnNames="id"/>
+    </changeSet>
+
+    <!-- 4) INSERT COUNTRIES -->
+    <changeSet id="4-insert-countries" author="nazerke">
+        <insert tableName="countries">
+            <column name="name" value="Kazakhstan"/>
+            <column name="code" value="KZ"/>
+        </insert>
+        <insert tableName="countries">
+            <column name="name" value="USA"/>
+            <column name="code" value="US"/>
+        </insert>
+        <insert tableName="countries">
+            <column name="name" value="Germany"/>
+            <column name="code" value="DE"/>
+        </insert>
+    </changeSet>
+
+    <!-- 5) INSERT ITEMS -->
+    <changeSet id="5-insert-items" author="nazerke">
+        <insert tableName="items">
+            <column name="name" value="Laptop"/>
+            <column name="price" valueNumeric="350000"/>
+            <column name="quantity" valueNumeric="5"/>
+            <column name="manufacturer_id" valueNumeric="2"/>
+        </insert>
+
+        <insert tableName="items">
+            <column name="name" value="Chocolate"/>
+            <column name="price" valueNumeric="500"/>
+            <column name="quantity" valueNumeric="100"/>
+            <column name="manufacturer_id" valueNumeric="3"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

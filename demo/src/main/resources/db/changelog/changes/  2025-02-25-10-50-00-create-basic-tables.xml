@@ -7,10 +7,9 @@
           http://www.liquibase.org/xml/ns/dbchangelog
           http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.7.xsd">
 
-    <!-- 1) CREATE TABLE countries -->
     <changeSet id="1-create-countries" author="nazerke">
         <createTable tableName="countries">
-            <column name="id" type="BIGSERIAL">
+            <column name="id" type="BIGINT AUTO_INCREMENT">
                 <constraints primaryKey="true"/>
             </column>
             <column name="name" type="VARCHAR(255)"/>
@@ -21,7 +20,7 @@
     <!-- 2) CREATE TABLE items -->
     <changeSet id="2-create-items" author="nazerke">
         <createTable tableName="items">
-            <column name="id" type="BIGSERIAL">
+            <column name="id" type="BIGINT AUTO_INCREMENT">
                 <constraints primaryKey="true"/>
             </column>
             <column name="name" type="VARCHAR(255)"/>

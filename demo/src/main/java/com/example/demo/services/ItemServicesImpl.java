@@ -3,13 +3,12 @@ package com.example.demo.services;
 
 import com.example.demo.dto.ItemDto;
 import com.example.demo.entity.Item;
-import com.example.demo.mapper.ItemMapping;
+import com.example.demo.mapper.ItemMapper;
 import com.example.demo.repository.CountryRepository;
 import com.example.demo.repository.ItemRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -18,7 +17,7 @@ public class ItemServicesImpl implements ItemsServices {
 
     private final ItemRepository itemRepository;
     private final CountryRepository countryRepository;
-    private final ItemMapping itemMapping;
+    private final ItemMapper itemMapping;
 
     @Override
     public List<ItemDto> getItemsList() {

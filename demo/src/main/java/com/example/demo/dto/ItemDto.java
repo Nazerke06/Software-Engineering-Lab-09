@@ -15,8 +15,8 @@ public class ItemDto {
 
     @Id
     private Long id;
-    private String name;
-    private int price;
+    private String itemName;
+    private int itemPrice;
     private int quantity;
-    private Country manufacturer;
+//    private Country manufacturer;
 }

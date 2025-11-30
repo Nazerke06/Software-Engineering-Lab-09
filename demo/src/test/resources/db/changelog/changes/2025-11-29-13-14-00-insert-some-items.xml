@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                               http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="insert-some-items" author="ali">
+        <insert tableName="items">
+            <column name="name" value="Iphone 16"/>
+            <column name="price" value="600000"/>
+            <column name="count" value="100"/>
+        </insert>
+        <insert tableName="items">
+            <column name="name" value="Iphone 16S"/>
+            <column name="price" value="700000"/>
+            <column name="count" value="80"/>
+        </insert>
+        <insert tableName="items">
+            <column name="name" value="Iphone 16 Pro"/>
+            <column name="price" value="900000"/>
+            <column name="count" value="50"/>
+        </insert>
+        <insert tableName="items">
+            <column name="name" value="Iphone 16 Pro Max"/>
+            <column name="price" value="1000000"/>
+            <column name="count" value="20"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

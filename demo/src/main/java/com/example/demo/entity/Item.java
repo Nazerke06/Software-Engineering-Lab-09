@@ -19,15 +19,15 @@ public class Item {
     private Long id;
 
     @Column(name="item_name")
-    private String name;
+    private String itemName;
 
     @Column(name = "item_price")
-    private int price;
+    private int itemPrice;
 
     @Column(name="item_quantity")
     private int quantity;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "country_id")
-    private Country manufacturer;
+//    @ManyToOne(fetch = FetchType.EAGER)
+//    @JoinColumn(name = "country_id")
+//    private Country manufacturer;
 }
